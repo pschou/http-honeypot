@@ -1,9 +1,9 @@
 package main
 
 import (
-	"flag"
 	"fmt"
 	"github.com/Maldris/mathparse"
+	"github.com/pschou/go-params"
 	"net"
 	"net/http"
 	"net/url"
@@ -75,19 +75,20 @@ func honeypot(w http.ResponseWriter, req *http.Request) {
 
 var title = "This is my server."
 var show_headers = true
-var Version = ""
+var version = ""
 var listen = ":8090"
 
 func init() {
-	flag.StringVar(&title, "header", title, "What header to print for blank requests")
-	flag.StringVar(&listen, "listen", listen, "Listen address")
-	flag.BoolVar(&show_headers, "show_header", show_headers, "Should we show headers?")
-	flag.Parse()
+	params.CommandLine.Title = "jqURL - URL and JSON parser tool, Written by Paul Schou (github.com/pschou/jqURL), Version: " + version
+	params.StringVar(&title, "header", title, "What header to print for blank requests", "STRING")
+	params.StringVar(&listen, "listen", listen, "Listen address", "PORT")
+	params.PresVar(&show_headers, "show_header", "Should we show headers?")
+	params.Parse()
 }
 
 func main() {
 	http.HandleFunc("/", honeypot)
 
-	fmt.Println("Version", Version, "Listen", listen)
+	fmt.Println("Version", version, "Listen", listen)
 	http.ListenAndServe(listen, nil)
 }
