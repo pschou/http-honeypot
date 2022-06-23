@@ -2,13 +2,14 @@ package main
 
 import (
 	"fmt"
-	"github.com/Maldris/mathparse"
-	"github.com/pschou/go-params"
 	"net"
 	"net/http"
 	"net/url"
 	"regexp"
 	"strings"
+
+	"github.com/Maldris/mathparse"
+	"github.com/pschou/go-params"
 )
 
 func honeypot(w http.ResponseWriter, req *http.Request) {
@@ -79,7 +80,7 @@ var version = ""
 var listen = ":8090"
 
 func init() {
-	params.CommandLine.Title = "http-honeypot - URL and JSON parser tool, Written by Paul Schou (github.com/pschou/http-honeypot), Version: " + version
+	params.CommandLine.Title = "http-honeypot - make http scanner bots go crazy, Written by Paul Schou (github.com/pschou/http-honeypot), Version: " + version
 	params.StringVar(&title, "header", title, "What header to print for blank requests", "STRING")
 	params.StringVar(&listen, "listen", listen, "Listen address", "PORT")
 	params.PresVar(&show_headers, "show_header", "Should we show headers?")

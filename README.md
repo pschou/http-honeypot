@@ -8,7 +8,7 @@ To run the http honeypot, you can just run the binary and it will begin listenin
 
 ```
 $ ./http-honeypot -h
-http-honeypot - URL and JSON parser tool, Written by Paul Schou (github.com/pschou/http-honeypot), Version: 0.1.VERSION
+http-honeypot - make http scanner bots go crazy, Written by Paul Schou (github.com/pschou/http-honeypot), Version: 0.1.VERSION
 
 Usage: http-honeypot [options...]
 Options:
